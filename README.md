@@ -1,7 +1,8 @@
 # nginx-passwd
 
-Basic Auth Password Manager
-Manage basic auth password files. This replaces the functionality provided by htpasswd from Apache.
+Basic Auth Password Manager.
+
+Tool to help manage basic auth password files. This replaces the functionality provided by htpasswd from Apache.
 
 
 ## Installation
