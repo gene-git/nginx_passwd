@@ -36,7 +36,7 @@ To add or modify a user and write the resulting password file:
 
     nginx-passwd -f <password_file> <user>
 
-If file is specified, then the result is written to stdout.
+If file is not specified, then the result is written to stdout.
 The default algorithm uses md5. See options or *nginx-passwd -h* for more information.
 
 
