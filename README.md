@@ -60,6 +60,9 @@ The default algorithm uses md5. See options for more information.
   - *-D, --delete*   
     Delete this user from the password file.
 
+  - *-v, --verify*    
+    Checks that the provided password matches that in the password file
+
 ## License
 
 Created by Gene C. It is licensed under the terms of the MIT license.
