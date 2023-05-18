@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.0] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2023-05-18
+ - install: switch from pip to python installer package. This adds optimized bytecode  
+ - update CHANGELOG.md  
+
 ## [1.0.2] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2023-05-18
  - PKGBUILD: build wheel back to using python -m build instead of poetry  
  - update CHANGELOG.md  
