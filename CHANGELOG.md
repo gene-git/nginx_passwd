@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.2] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2023-09-18
+ - Fix typo in PKGBUILD file  
+ - update CHANGELOG.md  
+
 ## [2.0.1] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2023-09-18
  - Change hashing code. Remove openssl and use python passlib.  
    Default algo is sha256  
