@@ -7,10 +7,10 @@ from .class_ngpopts import NgpOpts
 from .utils import read_passwd_file
 from .utils import write_passwd_file
 from .utils import print_passwd_file
-from .generate_passwd import generate_password
+from .hash import generate_password
 from .update import passwd_data_delete_user
 from .update import passwd_data_update_user
-from .verify import verify_password
+from .hash import verify_password
 
 class Ngp:
     """
@@ -39,7 +39,7 @@ class Ngp:
         if self.opts.delete:
             self.passwd_data = passwd_data_delete_user(self.passwd_data, user)
         else:
-            self.passwd_item = generate_password(self, algo=self.opts.algo_openssl)
+            self.passwd_item = generate_password(self, algo=self.opts.algo)
             self.passwd_data = passwd_data_update_user(self.passwd_data, user, self.passwd_item)
 
         if self.opts.passwd_file:

@@ -13,6 +13,7 @@
     Basic Auth Password files are in form:
     username:<password info>
 """
+# pylint: disable=invalid-name
 #import pdb
 from lib import Ngp
 

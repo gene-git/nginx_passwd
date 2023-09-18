@@ -21,9 +21,9 @@ def passwd_data_update_user(passwd_data, user, passwd_item):
     Add or modify user's password
     """
     if not passwd_data:
-        passwd_data = {user : passwd_item}
+        passwd_data = {user : passwd_item + '\n'}
 
     else:
-        passwd_data[user] = passwd_item
+        passwd_data[user] = passwd_item + '\n'
 
     return passwd_data

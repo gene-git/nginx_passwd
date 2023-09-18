@@ -27,7 +27,9 @@ To build it manually, clone the repo and do:
 
 - Run Time :
   - python (3.9 or later)
-  - openssl (used to generate passwords)
+  - passlib
+
+NB versions 1.1 and earlier used openssl - all newer version nuse python passlib library.
 
 ```
 
@@ -38,8 +40,20 @@ To add or modify a user and write the resulting password file:
     nginx-passwd -f <password_file> <user>
 
 If file is not specified, then the result is written to stdout.
-The default algorithm uses md5. See options or *nginx-passwd -h* for more information.
 
+The active algortithms are:
+
+    bcrypt, sha256 and sha512
+
+and sha256 being is the default.
+Older algorithms which are still supported but are deprecated and should be replaced by
+one of the active ones:
+
+    md5 and md5_apr1 
+
+md5_apr1, also known as apr1, is the apache variant of md5.
+
+See options below or *nginx-passwd -h* for help.
 
 ### Options
 
@@ -52,8 +66,8 @@ The default algorithm uses md5. See options or *nginx-passwd -h* for more inform
     Use this Password file
 
   - *-a, --algo* <algorithm>   
-    Default is md5   
-    Can be:  md5, sha256, sha512 or apr1
+    Default is sha256   
+    Can be:  md5, sha256, sha512 (md5 and md5_apr1) are considered deprecated
 
   - *-p, --passwd* <password>  
     Password as an option. Without this it will be read from stdin.
