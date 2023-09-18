@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.0.1] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2023-09-18
+ - Change hashing code. Remove openssl and use python passlib.  
+   Default algo is sha256  
+ - update CHANGELOG.md  
+
 ## [1.1.0] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2023-05-18
  - install: switch from pip to python installer package. This adds optimized bytecode  
  - update CHANGELOG.md  
