@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.3] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2023-09-20
+ - Small README tidy ups  
+ - update CHANGELOG.md  
+
 ## [2.0.2] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2023-09-18
  - Fix typo in PKGBUILD file  
  - update CHANGELOG.md  
