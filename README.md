@@ -22,14 +22,13 @@ To build it manually, clone the repo and do:
 
   If running as non-root then set root\_dest a user writable directory
 
-
 ### Dependencies
 
 - Run Time :
   - python (3.9 or later)
   - passlib
 
-NB versions 1.1 and earlier used openssl - all newer version nuse python passlib library.
+NB versions 1.1 and earlier used openssl - all newer version now use python passlib library.
 
 ```
 
@@ -45,8 +44,9 @@ The active algortithms are:
 
     bcrypt, sha256 and sha512
 
-and sha256 being is the default.
-Older algorithms which are still supported but are deprecated and should be replaced by
+with sha256 being the default.
+
+These older and deprecated algorithms are still supported but should be replaced by
 one of the active ones:
 
     md5 and md5_apr1 
