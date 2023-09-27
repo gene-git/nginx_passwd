@@ -1,10 +1,10 @@
 [tool.poetry]
 name = "nginx_passwd"
-version = "2.0.3"
+version = "2.1.0"
 description = "Basic Auth Password File Manager for nginx"
 authors = ["Gene C"]
 license = "MIT"
-readme = "README.md"
+readme = "README.rst"
 
 [tool.poetry.dependencies]
 python = "^3.9"

@@ -10,10 +10,10 @@
 dest="$1"
 self="nginx_passwd"
 
-info="README.md CHANGELOG.md scripts packaging "
+info="README.rst Docs scripts packaging "
 infodir="/usr/share/${self}"
 
-license="LICENSE"
+license="Docs/License.rst"
 licensedir="/usr/share/licenses/${self}"
 
 # list apps without the ".py" or leave empty string
@@ -28,8 +28,8 @@ if [ ! -d "$dest" ] ; then
 else
     # shared
 
-    /usr/bin/rsync --mkpath -a ${info} ${dest}${infodir}
-    /usr/bin/rsync --mkpath -a ${license} ${dest}/${licensedir}/${license}
+    /usr/bin/rsync --mkpath -a ${info} ${dest}${infodir}/
+    /usr/bin/rsync --mkpath -a ${license} ${dest}/${licensedir}/
 
     /usr/bin/python -m installer --destdir="$dest" dist/*.whl
 
