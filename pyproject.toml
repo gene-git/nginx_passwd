@@ -1,16 +1,22 @@
-[tool.poetry]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
 name = "nginx_passwd"
-version = "2.1.0"
-description = "Basic Auth Password File Manager for nginx"
-authors = ["Gene C"]
+dynamic = ["version"]
+description = "Basic Auth Password File Manager for nginx (gc)"
+authors = [{ name = "Gene C", email = "arch@sapience.com" }]
 license = "MIT"
 readme = "README.rst"
+keywords = []
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = []
 
-[tool.poetry.dependencies]
-python = "^3.9"
+[tool.hatch.version]
+path = "src/nginx_passwd/__about__.py"
 
-[tool.poetry.dev-dependencies]
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
