@@ -51,9 +51,11 @@ To add or modify a user and write the resulting password file:
 
 If file is not specified, then the result is written to stdout.
 
-The active algortithms are::
+The supported algortithms are::
 
-    bcrypt, sha256 and sha512
+    * Modern : argon2, pbkdf2_sha512, pbkdf2_sha256
+    * Active : sha512, sha256, bcrypt
+    * Deprecated: md5,  md5_apr1
 
 and sha256 is the default.
 
@@ -120,7 +122,7 @@ Dependencies
 * Building Package:
 
   * git
-  * poetry          (aka python-poetry)
+  * hatch           (aka python-hatch)
   * wheel           (aka python-wheel)
   * build           (aka python-build)
   * installer       (aka python-installer)
