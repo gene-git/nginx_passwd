@@ -4,14 +4,20 @@
  Generate password entry
 """
 import getpass
+#
+# Algos
+#
+# deprecated
+from passlib.hash import md5_crypt
+from passlib.hash import apr_md5_crypt
 # active
 from passlib.hash import sha512_crypt
 from passlib.hash import sha256_crypt
 from passlib.hash import bcrypt
-# deprecated
-from passlib.hash import md5_crypt
-from passlib.hash import apr_md5_crypt
-
+# modern
+from passlib.hash import argon2
+from passlib.hash import pbkdf2_sha512
+from passlib.hash import pbkdf2_sha256
 
 # -------------
 # Public
@@ -27,13 +33,17 @@ def get_passwd(ngp):
 def hash_from_algo(algo):
     """ return the hash func to use """
     match algo:
+        case 'argon2' :
+            hash_func = argon2
+        case 'pbkdf2_sha512' :
+            hash_func = pbkdf2_sha512
+        case 'pbkdf2_sha256' :
+            hash_func = pbkdf2_sha256
         case 'bcrypt' :
             hash_func = bcrypt
         case 'sha512' :
             hash_func = sha512_crypt
         case 'sha256' :
-            hash_func = sha256_crypt
-        case 'sha512' :
             hash_func = sha256_crypt
         case 'md5' :
             hash_func = md5_crypt
@@ -73,7 +83,7 @@ def hash_verify(ngp, phash):
 #
 def hash_algos_active():
     """ list of currently active hash functions """
-    algos = ['bcrypt', 'sha256', 'sha512']
+    algos = ['argon2', 'pbkdf2_sha512', 'pbkdf2_sha256', 'sha512', 'sha256', 'bcrypt']
     return algos
 
 def hash_algos_deprecated():

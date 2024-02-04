@@ -14,7 +14,6 @@
     username:<password info>
 """
 # pylint: disable=invalid-name
-#import pdb
 from lib import Ngp
 
 def main():
@@ -22,7 +21,6 @@ def main():
     nginx-passwd
        replacement for htpasswd
     """
-    #pdb.set_trace()
     ngp = Ngp()
     ngp.doit()
 

@@ -87,7 +87,9 @@ Positional Argument:
 
     Default is sha256. Can be one of::
 
-     md5, sha256, sha512 (md5 and md5_apr1) are considered deprecated
+    * Modern : argon2, pbkdf2_sha512, pbkdf2_sha256
+    * Active : sha512, sha256, bcrypt
+    * Deprecated: md5,  md5_apr1
 
   * (*-p, --passwd*) <password>  
 
