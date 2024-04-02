@@ -45,7 +45,8 @@ Usage
 -----
 
 To add or modify a user and write the resulting password file:
-.. code:: bash
+
+.. code-block:: bash
 
     nginx-passwd -f <password_file> <user>
 
@@ -59,12 +60,10 @@ The supported algortithms are::
 
 and sha256 is the default.
 
-These older and now deprecated algorithms are still supported but should be replaced by
-one of the active ones::
+These older and now deprecated algorithms (*md5*, *md5_apr1*) are still supported but should be replaced by
+one of the active ones.
 
-    md5 and md5_apr1 
-
-where *md5_apr1*, also known as *apr1*, is the old apache variant of md5.
+Aside, *md5_apr1* also known as *apr1*, is the pretty old apache variant of md5.
 
 Options
 -------
