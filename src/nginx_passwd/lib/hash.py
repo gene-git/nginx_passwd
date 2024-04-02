@@ -4,6 +4,7 @@
  Generate password entry
 """
 import getpass
+import logging
 #
 # Algos
 #
@@ -18,6 +19,13 @@ from passlib.hash import bcrypt
 from passlib.hash import argon2
 from passlib.hash import pbkdf2_sha512
 from passlib.hash import pbkdf2_sha256
+
+#
+# Remove passlib bcrypt warning if user has python-bcrypt loaded.
+#
+log = logging.getLogger('passlib.handlers.bcrypt')
+if log :
+    log.setLevel(logging.CRITICAL)
 
 # -------------
 # Public
