@@ -1,12 +1,19 @@
 Changelog
 =========
 
-**[HEAD] ----- 2024-04-02** ::
+**[HEAD] ----- 2024-04-04** ::
 
+	    Fix bug deleting last entry in password file.
+	          Thanks to solsticedhive for finding and providing patch.
+	          Fixes https://github.com/gene-git/nginx_passwd/issues/3
+	    Bug : if no user given then it is set to "None".
+	          Thanks to @olsticedhiver
+	          Fixes https://github.com/gene-git/nginx_passwd/issues/4
+	    update Docs/Changelog.rst Docs/nginx_passwd.pdf
 	    tweak readme
 
 
-**[2.4.0, origin/master] ----- 2024-04-02** ::
+**[2.4.0] ----- 2024-04-02** ::
 
 	    update Docs/Changelog.rst Docs/nginx_passwd.pdf
 	    update Docs/Changelog.rst
