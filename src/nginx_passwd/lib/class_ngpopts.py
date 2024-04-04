@@ -27,6 +27,10 @@ class NgpOpts:
         sanity check
         """
         is_okay = True
+        if not self.user :
+            print(f' A user name is required - please provide one')
+            is_okay = False
+
         if self.passwd_file and not os.path.exists(self.passwd_file):
             print(f' Password file not found : {self.passwd_file}')
             is_okay = False

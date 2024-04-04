@@ -22,7 +22,8 @@ def main():
        replacement for htpasswd
     """
     ngp = Ngp()
-    ngp.doit()
+    if ngp.okay:
+        ngp.doit()
 
 # -----------------------------------------------------
 if __name__ == '__main__':

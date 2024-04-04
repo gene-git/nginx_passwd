@@ -19,11 +19,13 @@ class Ngp:
     # pylint: disable=R0903
     def __init__(self):
 
+        self.okay = True
         self.opts = NgpOpts()
         self.passwd_data = None
         self.passwd_item = None
 
         if not self.opts.check():
+            self.okay = False
             return
 
         if self.opts.passwd_file:

@@ -44,13 +44,14 @@ def write_passwd_file(passwd_data, file):
     """
     Write dictionary to file
     """
-    if not passwd_data:
-        print('no data to print')
-        return
-
     fobj =  open_file(file, 'w')
     if not fobj:
         print(f'Failed to open password file for writing : {file}')
+        return
+
+    if not passwd_data:
+        print('no data to print')
+        fobj.close()
         return
 
     for item in passwd_data.items():
@@ -58,7 +59,7 @@ def write_passwd_file(passwd_data, file):
         passw = item[1]
         row = f'{user}:{passw}'
         fobj.write(row)
-
+    fobj.close()
 
 def print_passwd_file(passwd_data):
     """
