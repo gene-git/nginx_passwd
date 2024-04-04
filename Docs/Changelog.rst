@@ -1,8 +1,9 @@
 Changelog
 =========
 
-**[HEAD] ----- 2024-04-04** ::
+**[2.5.0, origin/master] ----- 2024-04-04** ::
 
+	    update Docs/Changelog.rst Docs/nginx_passwd.pdf
 	    Fix bug deleting last entry in password file.
 	          Thanks to solsticedhive for finding and providing patch.
 	          Fixes https://github.com/gene-git/nginx_passwd/issues/3
