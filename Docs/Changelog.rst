@@ -1,7 +1,13 @@
 Changelog
 =========
 
-**[2.5.0, origin/master] ----- 2024-04-04** ::
+**[2.5.1] ----- 2024-10-13** ::
+
+	    Minor readme update
+	    update Docs/Changelog.rst Docs/nginx_passwd.pdf
+
+
+**[2.5.0] ----- 2024-04-04** ::
 
 	    update Docs/Changelog.rst Docs/nginx_passwd.pdf
 	    Fix bug deleting last entry in password file.
