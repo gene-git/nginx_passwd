@@ -13,30 +13,12 @@ Key features
 
 Basic Auth Password Manager.
 Manages basic auth password files. This replaces the functionality provided by htpasswd from Apache.
+It also provides modern hash functions, such as argon2 and pbkdf2_sha512, which are far superior.
 
 ###############
 Getting Started
 ###############
 
-Installation
-============
-
-Available on
- * `Github`_
- * `Archlinux AUR`_
-
-On Arch you can build using the PKGBUILD provided in packaging directory or from the AUR package.
-To build manually, clone the repo and do:
-
- .. code-block:: bash
-    :caption: Manual Install
-
-        rm -f dist/*
-        /usr/bin/python -m build --wheel --no-isolation
-        root_dest="/"
-        ./scripts/do-install $root_dest
-
-When running as non-root then set root\_dest a user writable directory
 
 nginx_passwd application
 ========================
@@ -56,14 +38,14 @@ The supported algortithms are::
 
     * Modern : argon2, pbkdf2_sha512, pbkdf2_sha256
     * Active : sha512, sha256, bcrypt
-    * Deprecated: md5,  md5_apr1
+    * Deprecated: md5,  apr_md5/apr1
 
 and sha256 is the default.
 
-These older and now deprecated algorithms (*md5*, *md5_apr1*) are still supported but should be replaced by
+These older and now deprecated algorithms (*md5*, *apr_md5*) are still supported but should be replaced by
 one of the active ones.
 
-Aside, *md5_apr1* also known as *apr1*, is the pretty old apache variant of md5.
+Aside, *apr_md5* also known as *apr1*, is the ancient apache variant of md5.
 
 Options
 -------
@@ -108,6 +90,26 @@ Positional Argument:
 Appendix
 ########
 
+Installation
+============
+
+Available on
+ * `Github`_
+ * `Archlinux AUR`_
+
+On Arch you can build using the PKGBUILD provided in packaging directory or from the AUR package.
+To build manually, clone the repo and do:
+
+ .. code-block:: bash
+    :caption: Manual Install
+
+        rm -f dist/*
+        /usr/bin/python -m build --wheel --no-isolation
+        root_dest="/"
+        ./scripts/do-install $root_dest
+
+When running as non-root then set root\_dest a user writable directory
+
 Dependencies
 ============
 
@@ -146,7 +148,7 @@ License
 Created by Gene C. It is licensed under the terms of the MIT license.
 
  - SPDX-License-Identifier: MIT
- - Copyright (c) 2023, Gene C
+ - SPDX-FileCopyrightText: © 2023-present  Gene C <arch@sapience.com>
 
 .. _Github: https://github.com/gene-git/nginx_passwd
 .. _Archlinux AUR: https://aur.archlinux.org/packages/nginx_passwd
