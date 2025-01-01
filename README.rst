@@ -7,13 +7,17 @@ nginx-passwd
 Overview
 ========
 
-
-Key features
-============
-
 Basic Auth Password Manager.
 Manages basic auth password files. This replaces the functionality provided by htpasswd from Apache.
 It also provides modern hash functions, such as argon2 and pbkdf2_sha512, which are far superior.
+
+New Or Interesting
+==================
+
+ * All git tags are signed with arch@sapience.com key which is available via WKD
+   or download from https://www.sapience.com/tech. Add the key to your package builder gpg keyring.
+   The key is included in the Arch package and the source= line with *?signed* at the end can be used
+   to verify the git tag.  You can also manually verify the signature
 
 ###############
 Getting Started

@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: © 2023-present  Gene C <arch@sapience.com>
 """
   Basic Auth Password manager - replacement for Apache htpasswd
   NB arguments are different than htpasswd
