@@ -1,6 +1,15 @@
 Changelog
 =========
 
+**[2.5.2] ----- 2024-12-31** ::
+
+	    Git tags are now signed.
+	    Update SPDX tags
+	    Add git signing key to Arch Package
+	    Bump python vers
+	    update Docs/Changelog.rst Docs/nginx_passwd.pdf
+
+
 **[2.5.1] ----- 2024-10-13** ::
 
 	    Minor readme update
