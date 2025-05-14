@@ -1,10 +1,13 @@
 # SPDX-License-Identifier: MIT
 # SPDX-FileCopyrightText: © 2022-present  Gene C <arch@sapience.com>
 """
- Update password dictionary
+Update password dictionary
 """
+from typing import (Dict)
 
-def passwd_data_delete_user(passwd_data, user):
+
+def passwd_data_delete_user(passwd_data: Dict[str, str], user: str
+                            ) -> Dict[str, str]:
     """
     Remove user from password data
     """
@@ -16,12 +19,14 @@ def passwd_data_delete_user(passwd_data, user):
 
     return passwd_data
 
-def passwd_data_update_user(passwd_data, user, passwd_item):
+
+def passwd_data_update_user(passwd_data: Dict[str, str], user: str,
+                            passwd_item: str) -> Dict[str, str]:
     """
     Add or modify user's password
     """
     if not passwd_data:
-        passwd_data = {user : passwd_item + '\n'}
+        passwd_data = {user: passwd_item + '\n'}
 
     else:
         passwd_data[user] = passwd_item + '\n'

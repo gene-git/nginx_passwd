@@ -3,13 +3,18 @@
 """
  Support library tools for nginx-passwd
 """
+from typing import (Dict, IO)
 
 
-def open_file(path, mode):
+def open_file(path: str, mode: str) -> IO | None:
     """
     Open a file and return file object
+
+    Returns:
+        IO | None:
+        File object - IO = TextIO or BinaryIO
     """
-    # pylint: disable=W1514,R1732
+    # pylint: disable=unspecified-encoding,consider-using-with
     try:
         fobj = open(path, mode)
     except OSError as err:
@@ -17,20 +22,21 @@ def open_file(path, mode):
         fobj = None
     return fobj
 
-def read_passwd_file(file):
+
+def read_passwd_file(file: str) -> Dict[str, str]:
     """
     Read into dictionary key is username
     """
+    passwd_data: Dict[str, str] = {}
 
-    fobj =  open_file(file, 'r')
+    fobj = open_file(file, 'r')
     if fobj:
         data = fobj.readlines()
         fobj.close()
     else:
         print(f'Failed to open password file for reading : {file}')
-        return None
+        return passwd_data
 
-    passwd_data = {}
     for row in data:
         item = row.split(':', 1)
         if len(item) != 2:
@@ -40,11 +46,12 @@ def read_passwd_file(file):
 
     return passwd_data
 
-def write_passwd_file(passwd_data, file):
+
+def write_passwd_file(passwd_data: Dict[str, str], file: str):
     """
     Write dictionary to file
     """
-    fobj =  open_file(file, 'w')
+    fobj = open_file(file, 'w')
     if not fobj:
         print(f'Failed to open password file for writing : {file}')
         return
@@ -61,7 +68,8 @@ def write_passwd_file(passwd_data, file):
         fobj.write(row)
     fobj.close()
 
-def print_passwd_file(passwd_data):
+
+def print_passwd_file(passwd_data: Dict[str, str]):
     """
     Write dictionary to file
     """

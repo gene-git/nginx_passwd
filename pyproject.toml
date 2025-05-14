@@ -17,6 +17,18 @@ classifiers = [
 ]
 dependencies = []
 
+[tool.hatch.build.targets.wheel]
+packages = ["src/nginx_passwd"]
+include = [
+    "src/nginx_passwd",
+]
+
 [tool.hatch.version]
 path = "src/nginx_passwd/__about__.py"
 
+[tool.mypy]
+check_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = "passlib.*"
+ignore_errors = true

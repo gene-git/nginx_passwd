@@ -3,37 +3,44 @@
 """
 NgpOpts  - command line options for nginx-passwd
 """
-# pylint: disable=R0903
-
+# pylint: disable=too-few-public-methods
 import os
-from .opts import parse_options
 
-class NgpOpts:
+from ._ngpopts_base import NgpOptsBase
+from .opts import parse_options
+from .utils import open_file
+
+
+class NgpOpts(NgpOptsBase):
     """
     Command line options
     """
     def __init__(self):
-        self.algo = None
-        self.passwd_file = None
-        self.passwd = None
-        self.user = None
-        self.delete = False
-        self.verify = False
+        super().__init__()
 
         parse_options(self)
 
-    def check(self):
+    def check(self) -> bool:
         """
         sanity check
+
+        Returns:
+            bool:
+            True if all ok otherwise False
         """
         is_okay = True
-        if not self.user :
-            print(f' A user name is required - please provide one')
+        if not self.user:
+            print(' A user name is required - please provide one')
             is_okay = False
 
         if self.passwd_file and not os.path.exists(self.passwd_file):
-            print(f' Password file not found : {self.passwd_file}')
-            is_okay = False
+            print(f' New password file: {self.passwd_file}')
+            fob = open_file(self.passwd_file, 'w')
+            if fob:
+                fob.close()
+            else:
+                print(f' Cannot create password file: {self.passwd_file}')
+                is_okay = False
 
         if self.delete and not self.passwd_file:
             print(' Delete a user requires password file')

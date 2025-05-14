@@ -3,26 +3,27 @@
 """
 nginx-passwd class
 """
-from .class_ngpopts import NgpOpts
-from .utils import read_passwd_file
+from ._ngp_base import NgpBase
 from .utils import write_passwd_file
 from .utils import print_passwd_file
+from .utils import read_passwd_file
 from .hash import generate_password
 from .update import passwd_data_delete_user
 from .update import passwd_data_update_user
 from .hash import verify_password
 
-class Ngp:
+
+class Ngp(NgpBase):
     """
     nginx-passwd manager class
-    """
-    # pylint: disable=R0903
-    def __init__(self):
 
-        self.okay = True
-        self.opts = NgpOpts()
-        self.passwd_data = None
-        self.passwd_item = None
+    Child class with methods.
+    Using base class with data allows using separate
+    files to perform actions while avoiding circular
+    import issues.
+    """
+    def __init__(self):
+        super().__init__()
 
         if not self.opts.check():
             self.okay = False
@@ -33,7 +34,7 @@ class Ngp:
 
     def update(self):
         """
-        Update passwd_data 
+        Update passwd_data
           - delete username if specified
           - add / modify otherwise
         """
@@ -42,7 +43,8 @@ class Ngp:
             self.passwd_data = passwd_data_delete_user(self.passwd_data, user)
         else:
             self.passwd_item = generate_password(self, algo=self.opts.algo)
-            self.passwd_data = passwd_data_update_user(self.passwd_data, user, self.passwd_item)
+            self.passwd_data = passwd_data_update_user(self.passwd_data,
+                                                       user, self.passwd_item)
 
         if self.opts.passwd_file:
             write_passwd_file(self.passwd_data, self.opts.passwd_file)
