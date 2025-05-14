@@ -1,117 +1,159 @@
+=========
 Changelog
 =========
 
-**[2.5.2] ----- 2024-12-31** ::
+Tags
+====
 
-	    Git tags are now signed.
-	    Update SPDX tags
-	    Add git signing key to Arch Package
-	    Bump python vers
-	    update Docs/Changelog.rst Docs/nginx_passwd.pdf
+::
 
+	0.9.0 (2023-04-17) -> 2.6.0 (2025-05-14)
+	40 commits.
 
-**[2.5.1] ----- 2024-10-13** ::
-
-	    Minor readme update
-	    update Docs/Changelog.rst Docs/nginx_passwd.pdf
+Commits
+=======
 
 
-**[2.5.0] ----- 2024-04-04** ::
+* 2025-05-14  : **2.6.0**
 
-	    update Docs/Changelog.rst Docs/nginx_passwd.pdf
-	    Fix bug deleting last entry in password file.
-	          Thanks to solsticedhive for finding and providing patch.
-	          Fixes https://github.com/gene-git/nginx_passwd/issues/3
-	    Bug : if no user given then it is set to "None".
-	          Thanks to @olsticedhiver
-	          Fixes https://github.com/gene-git/nginx_passwd/issues/4
-	    update Docs/Changelog.rst Docs/nginx_passwd.pdf
-	    tweak readme
+::
 
+                * PEP-8, PEP-257, PEP-484 and PEP 561
+                * Refactor code
+                * Add pytests
+                * add python-bcrypt dependency to Arch PKBUILD
+ 2024-12-31     update Docs/Changelog.rst Docs/nginx_passwd.pdf
 
-**[2.4.0] ----- 2024-04-02** ::
+* 2024-12-31  : **2.5.2**
 
-	    update Docs/Changelog.rst Docs/nginx_passwd.pdf
-	    update Docs/Changelog.rst
-	    Fix passlib bcrrypt warning when can happen if python-bcyrpt is used.
-	        The python bcrypt module is optional for passlib.
-	        Fixes https://github.com/gene-git/nginx_passwd/issues/2 brought by @solsticedhiver
-	    update Docs/Changelog.rst
+::
 
+                Git tags are now signed.
+                Update SPDX tags
+                Add git signing key to Arch Package
+                Bump python vers
+ 2024-10-13     update Docs/Changelog.rst Docs/nginx_passwd.pdf
 
-**[2.3.1] ----- 2024-02-04** ::
+* 2024-10-13  : **2.5.1**
 
-	    tweak readme
-	    update Docs/Changelog.rst
+::
 
+                Minor readme update
+ 2024-04-04     update Docs/Changelog.rst Docs/nginx_passwd.pdf
 
-**[2.3.0] ----- 2024-02-04** ::
+* 2024-04-04  : **2.5.0**
 
-	    Add support for argon2,pbkdf2_sha512  and pbkdf2_sha256
-	    Optional depends python-argon2_cffi for argon2 support
-	    update Docs/Changelog.rst
+::
 
+                update Docs/Changelog.rst Docs/nginx_passwd.pdf
+                Fix bug deleting last entry in password file.
+                      Thanks to solsticedhive for finding and providing patch.
+                      Fixes https://github.com/gene-git/nginx_passwd/issues/3
+                Bug : if no user given then it is set to "None".
+                      Thanks to @olsticedhiver
+                      Fixes https://github.com/gene-git/nginx_passwd/issues/4
+ 2024-04-02     update Docs/Changelog.rst Docs/nginx_passwd.pdf
+                tweak readme
 
-**[2.2.0] ----- 2023-11-27** ::
+* 2024-04-02  : **2.4.0**
 
-	    Change python backend from poetry to hatch
-	    update Docs/Changelog.rst
+::
 
+                update Docs/Changelog.rst Docs/nginx_passwd.pdf
+                update Docs/Changelog.rst
+                Fix passlib bcrrypt warning when can happen if python-bcyrpt is used.
+                    The python bcrypt module is optional for passlib.
+                    Fixes https://github.com/gene-git/nginx_passwd/issues/2 brought by
+                    @solsticedhiver
+ 2024-02-04     update Docs/Changelog.rst
 
-**[2.1.0] ----- 2023-09-27** ::
+* 2024-02-04  : **2.3.1**
 
-	    Reorganize documents and migrate to restructured text
-	    update CHANGELOG.md
+::
 
+                tweak readme
+                update Docs/Changelog.rst
 
-**[2.0.3] ----- 2023-09-20** ::
+* 2024-02-04  : **2.3.0**
 
-	    Small README tidy ups
-	    update CHANGELOG.md
+::
 
+                Add support for argon2,pbkdf2_sha512  and pbkdf2_sha256
+                Optional depends python-argon2_cffi for argon2 support
+ 2023-11-27     update Docs/Changelog.rst
 
-**[2.0.2] ----- 2023-09-18** ::
+* 2023-11-27  : **2.2.0**
 
-	    Fix typo in PKGBUILD file
-	    update CHANGELOG.md
+::
 
+                Change python backend from poetry to hatch
+ 2023-09-27     update Docs/Changelog.rst
 
-**[2.0.1] ----- 2023-09-18** ::
+* 2023-09-27  : **2.1.0**
 
-	    Change hashing code. Remove openssl and use python passlib.
-	    Default algo is sha256
-	    update CHANGELOG.md
+::
 
+                Reorganize documents and migrate to restructured text
+ 2023-09-20     update CHANGELOG.md
 
-**[1.1.0] ----- 2023-05-18** ::
+* 2023-09-20  : **2.0.3**
 
-	    install: switch from pip to python installer package. This adds optimized bytecode
-	    update CHANGELOG.md
+::
 
+                Small README tidy ups
+ 2023-09-18     update CHANGELOG.md
 
-**[1.0.2] ----- 2023-05-18** ::
+* 2023-09-18  : **2.0.2**
 
-	    PKGBUILD: build wheel back to using python -m build instead of poetry
-	    update CHANGELOG.md
+::
 
+                Fix typo in PKGBUILD file
+                update CHANGELOG.md
 
-**[1.0.1] ----- 2023-05-17** ::
+* 2023-09-18  : **2.0.1**
 
-	    Simplify Arch PKGBUILD and more closely follow arch guidelines
-	    small readme chg
-	    typo
-	    tweak readme
-	    update CHANGELOG.md
+::
 
+                Change hashing code. Remove openssl and use python passlib.
+                Default algo is sha256
+ 2023-05-18     update CHANGELOG.md
 
-**[1.0.0] ----- 2023-04-17** ::
+* 2023-05-18  : **1.1.0**
 
-	    Add --verify to check password
-	    update CHANGELOG.md
+::
 
+                install: switch from pip to python installer package. This adds optimized
+                bytecode
+                update CHANGELOG.md
 
-**[0.9.0] ----- 2023-04-17** ::
+* 2023-05-18  : **1.0.2**
 
-	    Initial Commit
+::
+
+                PKGBUILD: build wheel back to using python -m build instead of poetry
+ 2023-05-17     update CHANGELOG.md
+
+* 2023-05-17  : **1.0.1**
+
+::
+
+                Simplify Arch PKGBUILD and more closely follow arch guidelines
+ 2023-04-17     small readme chg
+                typo
+                tweak readme
+                update CHANGELOG.md
+
+* 2023-04-17  : **1.0.0**
+
+::
+
+                Add --verify to check password
+                update CHANGELOG.md
+
+* 2023-04-17  : **0.9.0**
+
+::
+
+                Initial Commit
 
 
