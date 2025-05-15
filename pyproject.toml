@@ -30,5 +30,5 @@ path = "src/nginx_passwd/__about__.py"
 check_untyped_defs = true
 
 [[tool.mypy.overrides]]
-module = "passlib.*"
-ignore_errors = true
+module = ["passlib.hash"]
+follow_untyped_imports = true

@@ -21,26 +21,23 @@ import logging
 # Algos
 #
 # deprecated
-#
 from passlib.hash import md5_crypt
 from passlib.hash import apr_md5_crypt
-#
+
 # active
-#
 from passlib.hash import sha512_crypt
 from passlib.hash import sha256_crypt
 from passlib.hash import bcrypt
-#
+
 # modern
-#
-from passlib.hash import argon2
 from passlib.hash import pbkdf2_sha512
 from passlib.hash import pbkdf2_sha256
-# ------------------------------------
+from passlib.hash import argon2
 
+from ._ngp_base import NgpBase
 from .hash_algos import (hash_algos_active, hash_algos_deprecated)
 from .hash_algos import (hash_algo_default)
-from ._ngp_base import NgpBase
+
 
 #
 # Remove passlib bcrypt warning if user has python-bcrypt loaded.

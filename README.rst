@@ -24,6 +24,7 @@ New Or Interesting
 * Refactor code
 * Add pytests
 * add python-bcrypt dependency to Arch PKBUILD
+* For simplicity, make argon2 required instead of optional
 
 
 ###############

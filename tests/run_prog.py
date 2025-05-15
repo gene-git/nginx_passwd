@@ -37,10 +37,10 @@ def run_prog(pargs: List[str], env: Dict[str, str] | None
             output = ret.stdout
             errors = ret.stderr
 
-        except subprocess.CalledProcessError :
+        except subprocess.CalledProcessError:
             pass
 
-        except FileNotFoundError :
+        except FileNotFoundError:
             pass
         #    errors = str(ret.stderr, 'utf-8',errors='ignore')
 
