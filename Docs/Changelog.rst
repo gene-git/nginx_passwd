@@ -7,12 +7,20 @@ Tags
 
 ::
 
-	0.9.0 (2023-04-17) -> 2.6.0 (2025-05-14)
-	40 commits.
+	0.9.0 (2023-04-17) -> 2.7.1 (2025-05-15)
+	42 commits.
 
 Commits
 =======
 
+
+* 2025-05-15  : **2.7.1**
+
+::
+
+                Add missing PKGBUILD dependencies so pytest does not fail
+                  Fixes issue #5 thanks to @SoLoR1
+ 2025-05-14     update Docs/Changelogs Docs/${my_name}.pdf
 
 * 2025-05-14  : **2.6.0**
 
