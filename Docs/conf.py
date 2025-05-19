@@ -9,7 +9,7 @@
 project = "nginx_passwd"
 copyright = '2023, Gene C'
 author = 'Gene C'
-release = '2.7.2'
+release = '2.7.3'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
