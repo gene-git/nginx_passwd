@@ -1,0 +1,33 @@
+-------------------------------------------------------
+ Changelog    : nginx_passwd
+ Tags         : 2.5.2 ➙ 2.7.3
+              : 2024-12-31 ➙ 2025-05-19
+              : 6 tags. See Docs for full changelog
+-------------------------------------------------------
+
+ 2025-05-19   : 2.7.3
+                Arch PKGBUILD: move pytest dependency to checkdepends from makedepends
+ 2025-05-15     update Docs/Changelogs Docs/${my_name}.pdf
+
+ 2025-05-15   : 2.7.2
+                typo
+                update Docs/Changelogs Docs/${my_name}.pdf
+
+ 2025-05-15   : 2.7.1
+                Add missing PKGBUILD dependencies so pytest does not fail
+                  Fixes issue #5 thanks to @SoLoR1
+ 2025-05-14     update Docs/Changelogs Docs/${my_name}.pdf
+
+ 2025-05-14   : 2.6.0
+                * PEP-8, PEP-257, PEP-484 and PEP 561
+                * Refactor code
+                * Add pytests
+                * add python-bcrypt dependency to Arch PKBUILD
+ 2024-12-31     update Docs/Changelog.rst Docs/nginx_passwd.pdf
+
+ 2024-12-31   : 2.5.2
+                Git tags are now signed.
+                Update SPDX tags
+                Add git signing key to Arch Package
+                Bump python vers
+ 2024-10-13     update Docs/Changelog.rst Docs/nginx_passwd.pdf
