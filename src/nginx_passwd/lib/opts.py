@@ -4,7 +4,7 @@
 Available options
 """
 # pylint: disable=
-from typing import (Any, List, Dict, Tuple)
+from typing import (Any)
 import sys
 import argparse
 
@@ -13,12 +13,12 @@ from .hash_algos import hash_algo_default
 from .hash_algos import hash_algos_active
 from .hash_algos import hash_algos_deprecated
 
-type Opt = Tuple[str | Tuple[str, str], Dict[str, Any]]
+type Opt = tuple[str | tuple[str, str], dict[str, Any]]
 
 
-def _avail_options(algo_def: str, algos: List[str],
-                   algos_depr: List[str]
-                   ) -> Tuple[str, str, List[str], List[Opt]]:
+def _avail_options(algo_def: str, algos: list[str],
+                   algos_depr: list[str]
+                   ) -> tuple[str, str, list[str], list[Opt]]:
     """
     List of command line options for argparse
     """
@@ -26,7 +26,7 @@ def _avail_options(algo_def: str, algos: List[str],
     argv = sys.argv[1:]
 
     desc = "nginx-passwd: nginx basic auth password manager"
-    opts: List[Opt] = []
+    opts: list[Opt] = []
 
     ohelp = 'Password file'
     opt = (('-f', '--passwd_file'), {'help': ohelp})

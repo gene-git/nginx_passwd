@@ -3,7 +3,7 @@
 """
  Support library tools for nginx-passwd
 """
-from typing import (Dict, IO)
+from typing import (IO)
 
 
 def open_file(path: str, mode: str) -> IO | None:
@@ -23,11 +23,11 @@ def open_file(path: str, mode: str) -> IO | None:
     return fobj
 
 
-def read_passwd_file(file: str) -> Dict[str, str]:
+def read_passwd_file(file: str) -> dict[str, str]:
     """
     Read into dictionary key is username
     """
-    passwd_data: Dict[str, str] = {}
+    passwd_data: dict[str, str] = {}
 
     fobj = open_file(file, 'r')
     if fobj:
@@ -47,7 +47,7 @@ def read_passwd_file(file: str) -> Dict[str, str]:
     return passwd_data
 
 
-def write_passwd_file(passwd_data: Dict[str, str], file: str):
+def write_passwd_file(passwd_data: dict[str, str], file: str):
     """
     Write dictionary to file
     """
@@ -69,7 +69,7 @@ def write_passwd_file(passwd_data: Dict[str, str], file: str):
     fobj.close()
 
 
-def print_passwd_file(passwd_data: Dict[str, str]):
+def print_passwd_file(passwd_data: dict[str, str]):
     """
     Write dictionary to file
     """

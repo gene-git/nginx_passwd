@@ -3,11 +3,10 @@
 """
 Update password dictionary
 """
-from typing import (Dict)
 
 
-def passwd_data_delete_user(passwd_data: Dict[str, str], user: str
-                            ) -> Dict[str, str]:
+def passwd_data_delete_user(passwd_data: dict[str, str], user: str
+                            ) -> dict[str, str]:
     """
     Remove user from password data
     """
@@ -20,8 +19,8 @@ def passwd_data_delete_user(passwd_data: Dict[str, str], user: str
     return passwd_data
 
 
-def passwd_data_update_user(passwd_data: Dict[str, str], user: str,
-                            passwd_item: str) -> Dict[str, str]:
+def passwd_data_update_user(passwd_data: dict[str, str], user: str,
+                            passwd_item: str) -> dict[str, str]:
     """
     Add or modify user's password
     """

@@ -3,13 +3,12 @@ Hash Tests
 
 Please set PYTHONPATH.
 """
-from typing import (Tuple)
 import os
 
 from .run_prog import run_prog
 
 
-def _get_passinfo() -> Tuple[str, str, str]:
+def _get_passinfo() -> tuple[str, str, str]:
     """
     Temporary Directory password file.
     """

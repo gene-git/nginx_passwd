@@ -4,7 +4,6 @@
 nginx-passwd class
 """
 # pylint: disable=too-few-public-methods
-from typing import (Dict)
 
 from .class_ngpopts import NgpOpts
 
@@ -19,5 +18,5 @@ class NgpBase:
 
         self.okay: bool = True
         self.opts: NgpOpts = NgpOpts()
-        self.passwd_data: Dict[str, str] = {}
+        self.passwd_data: dict[str, str] = {}
         self.passwd_item: str = ''

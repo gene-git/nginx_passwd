@@ -3,10 +3,9 @@
 """
  Generate password entry
 """
-from typing import (List)
 
 
-def hash_algos_active() -> List[str]:
+def hash_algos_active() -> list[str]:
     """
     list of (currently) active hash functions
     """
@@ -15,7 +14,7 @@ def hash_algos_active() -> List[str]:
     return algos
 
 
-def hash_algos_deprecated() -> List[str]:
+def hash_algos_deprecated() -> list[str]:
     """
     list of deprecated but supported hash functions
     """
