@@ -1,9 +1,9 @@
-# SPDX-License-Identifier: MIT
-# SPDX-FileCopyrightText: © 2022-present  Gene C <arch@sapience.com>
+# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-FileCopyrightText: © 2022-present Gene C <arch@sapience.com>
 """
 Available options
 """
-# pylint: disable=
+# pylint: disable=too-many-locals
 from typing import (Any)
 import sys
 import argparse
@@ -32,11 +32,13 @@ def _avail_options(algo_def: str, algos: list[str],
     opt = (('-f', '--passwd_file'), {'help': ohelp})
     opts.append(opt)
 
-    ohelp = f'default={algo_def} active={algos} deprecated={algos_depr}'
+    ohelp = 'Algorothms may use "_" or "-" in the name'
+    ohelp += f'\ndefault = {algo_def}\nactive = {algos}'
+    ohelp += f'\ndeprecated = {algos_depr}'
     opt = (('-a', '--algo'), {'help': ohelp, 'default': algo_def})
     opts.append(opt)
 
-    ohelp = 'Passowrd to use '
+    ohelp = 'Password to use'
     opt = (('-p', '--passwd'), {'help': ohelp})
     opts.append(opt)
 
@@ -60,18 +62,27 @@ def parse_options(ngp: NgpOptsBase):
     """
     algo_def = hash_algo_default()
     algos = hash_algos_active()
+    with_hyphen = [algo.replace('_', '-') for algo in algos if '_' in algo]
+    algos += with_hyphen
+    algos.sort()
+
     algos_depr = hash_algos_deprecated()
+    with_hyphen = [algo.replace('_', '-') for algo in algos_depr if '_' in algo]
+    algos_depr += with_hyphen
+    algos_depr.sort()
 
     #
     # Get options
     #
-    (prog, desc, argv, opts) = _avail_options(algo_def, algos,
-                                              algos_depr)
+    (prog, desc, argv, opts) = _avail_options(algo_def, algos, algos_depr)
 
     #
     # Parse and save
     #
-    par = argparse.ArgumentParser(description=desc, prog=prog)
+    par = argparse.ArgumentParser(
+            description=desc,
+            formatter_class=argparse.RawTextHelpFormatter,
+            prog=prog)
 
     for opt in opts:
         opt_list, kwargs = opt

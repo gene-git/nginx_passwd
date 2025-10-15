@@ -24,7 +24,7 @@ include = [
 ]
 
 [tool.hatch.version]
-path = "src/nginx_passwd/__about__.py"
+path = "src/nginx_passwd/lib/version.py"
 
 [tool.mypy]
 check_untyped_defs = true

@@ -56,21 +56,58 @@ class TestHash:
     """
     Hash test class
     """
-    def test_active(self):
+    def test_bcrypt(self):
         """
-        Test all active hash function
+        Test bcrypt
         """
-        algos = ['argon2', 'pbkdf2_sha512', 'pbkdf2_sha256',
-                 'sha512', 'sha256', 'bcrypt']
+        algo = 'bcrypt'
+        assert _test_hash(algo)
 
-        for algo in algos:
-            assert _test_hash(algo)
-
-    def test_deprecated(self):
+    def test_sha512(self):
         """
-        Test all deprecated hash function
+        Test sha512
         """
-        algos = ['apr_md5', 'apr1', 'md5']
+        algo = 'sha512'
+        assert _test_hash(algo)
 
-        for algo in algos:
-            assert _test_hash(algo)
+    def test_sha256(self):
+        """
+        Test sha256
+        """
+        algo = 'sha256'
+        assert _test_hash(algo)
+
+    def test_pbkdf2_sha256(self):
+        """
+        Test pbkdf2_sha256
+        """
+        algo = 'pbkdf2_sha256'
+        assert _test_hash(algo)
+
+    def test_pbkdf2_sha512(self):
+        """
+        Test pbkdf2_sha512
+        """
+        algo = 'pbkdf2_sha512'
+        assert _test_hash(algo)
+
+    def test_argon2(self):
+        """
+        Test argon2
+        """
+        algo = 'argon2'
+        assert _test_hash(algo)
+
+    def test_md5(self):
+        """
+        Deprecated: Test md5
+        """
+        algo = 'md5'
+        assert _test_hash(algo)
+
+    def test_apr1(self):
+        """
+        Deprecated: Test apr1
+        """
+        algo = 'apr1'
+        assert _test_hash(algo)

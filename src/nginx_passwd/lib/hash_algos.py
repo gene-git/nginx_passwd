@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: MIT
-# SPDX-FileCopyrightText: © 2022-present  Gene C <arch@sapience.com>
+# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-FileCopyrightText: © 2022-present Gene C <arch@sapience.com>
 """
  Generate password entry
 """
@@ -27,3 +27,44 @@ def hash_algo_default() -> str:
     default algo to use of not specified
     """
     return 'sha256'
+
+
+def hash_to_ident(phash: str) -> str:
+    """
+    Determinte algo used to make this password hash
+    Args:
+        phash (str):
+            The hashed password
+    Return:
+        str:
+            The password hash algorithm.
+    """
+    algo = ''
+    if not phash:
+        return algo
+
+    if phash.startswith('$argon2id$'):
+        algo = 'argon2'
+
+    elif phash.startswith('$pbkdf2-sha512$'):
+        algo = 'pbkdf2-sha512'
+
+    elif phash.startswith('$pbkdf2-sha256$'):
+        algo = 'pbkdf2-sha256'
+
+    elif phash.startswith('$2b$'):
+        algo = 'bcrypt'
+
+    elif phash.startswith('$6$'):
+        algo = 'sha512'
+
+    elif phash.startswith('$5$'):
+        algo = 'sha256'
+
+    elif phash.startswith('$apr1$'):
+        algo = 'apr1'
+
+    elif phash.startswith('$1$'):
+        algo = 'md5'
+
+    return algo

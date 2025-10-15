@@ -8,17 +8,7 @@ nginx_passwd documentation
 
 .. toctree::
    README
-   Changelog
-   License
-   Contributing
-   Code-of-conduct
+   License/License
    :maxdepth: 2
    :caption: Contents:
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

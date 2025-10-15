@@ -1,16 +1,19 @@
-# SPDX-License-Identifier: MIT
-# SPDX-FileCopyrightText: © 2022-present  Gene C <arch@sapience.com>
+# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-FileCopyrightText: © 2022-present Gene C <arch@sapience.com>
 """
 nginx-passwd class
 """
+import getpass
+
 from ._ngp_base import NgpBase
 from .utils import write_passwd_file
 from .utils import print_passwd_file
 from .utils import read_passwd_file
-from .hash import generate_password
 from .update import passwd_data_delete_user
 from .update import passwd_data_update_user
+from .hash import generate_password
 from .hash import verify_password
+from .hash_algos import hash_algo_default
 
 
 class Ngp(NgpBase):
@@ -42,7 +45,12 @@ class Ngp(NgpBase):
         if self.opts.delete:
             self.passwd_data = passwd_data_delete_user(self.passwd_data, user)
         else:
-            self.passwd_item = generate_password(self, algo=self.opts.algo)
+            passwd = self._get_passwd()
+            algo: str = self.opts.algo
+            if not algo:
+                algo = hash_algo_default()
+
+            self.passwd_item = generate_password(algo, passwd)
             self.passwd_data = passwd_data_update_user(self.passwd_data,
                                                        user, self.passwd_item)
 
@@ -55,11 +63,40 @@ class Ngp(NgpBase):
         """
         Check the password for user
         """
-        is_match = verify_password(self)
+        phash: str = self._get_phash()
+        if not phash:
+            return
+
+        passwd: str = self._get_passwd()
+
+        is_match = verify_password(phash, passwd)
         if is_match:
             print('Password matches')
         else:
             print('Password NOT a match')
+
+    def _get_phash(self) -> str:
+        """
+        Return hashed password for this user
+        """
+        user = self.opts.user
+        phash: str = ''
+        if user in self.passwd_data:
+            phash = self.passwd_data[user]
+        else:
+            print('User is not in the password file - cannot check')
+            phash = ''
+        return phash
+
+    def _get_passwd(self) -> str:
+        """
+        Return cached password or prompt
+        """
+        if self.opts.passwd:
+            passwd = self.opts.passwd
+        else:
+            passwd = getpass.getpass()
+        return passwd
 
     def doit(self):
         """

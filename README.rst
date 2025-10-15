@@ -1,4 +1,4 @@
-.. SPDX-License-Identifier: MIT
+.. SPDX-License-Identifier: GPL-2.0-or-later
 
 ############
 nginx-passwd
@@ -19,6 +19,22 @@ It also provides modern hash functions, such as argon2 and pbkdf2_sha512, which 
 
 New Or Interesting
 ==================
+
+**Version 3.0.0**
+
+* Reduce our reliance on passlib (it is unmaintained).
+
+  * passlib bcrypt is broken 
+  * there is a fork which works
+
+* Algo changes no longer using passlib:
+  
+  * bcrypt now uses python-bcrypt directly
+  * argon2 now uses python-argon2-cffi (which uses C library)
+  * pbkdf2_sha512 now uses python-cryptography
+  * pbkdf2_sha256 now uses python-cryptography
+
+**Older**
 
 * PEP-8, PEP-257, PEP-484 and PEP 561
 * Refactor code
@@ -149,10 +165,10 @@ Dependencies
 Philosophy
 ==========
 
-We follow the *live at head commit* philosophy. This means we recommend using the
-latest commit on git master branch. We also provide git tags.
+We follow the *live at head commit* philosophy as recommended by
+Google's Abseil team [1]_.  This means we recommend using the
+latest commit on git master branch. 
 
-This approach is also taken by Google [1]_ [2]_.
 
 License
 =======
@@ -165,7 +181,6 @@ Created by Gene C. It is licensed under the terms of the MIT license.
 .. _Github: https://github.com/gene-git/nginx_passwd
 .. _Archlinux AUR: https://aur.archlinux.org/packages/nginx_passwd
 
-.. [1] https://github.com/google/googletest  
-.. [2] https://abseil.io/about/philosophy#upgrade-support
+.. [1] https://abseil.io/about/philosophy#upgrade-support
 
 
