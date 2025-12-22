@@ -13,7 +13,7 @@ self="nginx_passwd"
 info="README.rst Docs scripts packaging "
 infodir="/usr/share/${self}"
 
-license="Docs/License.rst"
+license="Docs/License/License.rst Docs/License/License-gpl-2.0.txt"
 licensedir="/usr/share/licenses/${self}"
 
 # list apps without the ".py" or leave empty string
