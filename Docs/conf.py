@@ -9,7 +9,7 @@
 project = "nginx_passwd"
 copyright = '2023, Gene C'
 author = 'Gene C'
-release = '3.1.0'
+release = '3.2.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -18,7 +18,7 @@ release = '3.1.0'
 extensions = []
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'Changelog.rst', 'Misc/*.rst']
 
 
 

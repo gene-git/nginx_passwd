@@ -6,12 +6,24 @@ Tags
 
 .. code-block:: text
 
-	0.9.0 (2023-04-17) -> 3.0.1 (2025-10-15)
-	50 commits.
+	0.9.0 (2023-04-17) -> 3.1.0 (2025-12-22)
+	52 commits.
 
 Commits
 =======
 
+
+* 2025-12-22  : **3.1.0**
+
+.. code-block:: text
+
+              - * Remove os.getlogin() in tests (ENOTTY reported by @ccharabaruk on AUR package).
+                * Small tidy ups
+ 2025-10-15   ⋯
+
+.. code-block:: text
+
+              - update Docs/Changelogs Docs/${my_name}.pdf
 
 * 2025-10-15  : **3.0.1**
 
