@@ -91,11 +91,18 @@ class Ngp(NgpBase):
     def _get_passwd(self) -> str:
         """
         Return cached password or prompt
+        Warning: If nowhere to get password it is empty string
         """
+        passwd: str = ''
         if self.opts.passwd:
             passwd = self.opts.passwd
         else:
-            passwd = getpass.getpass()
+            try:
+                passwd = getpass.getpass()
+            except (EOFError, OSError):
+                # nowhere to read passsword from
+                # and nowhere to show exception
+                pass
         return passwd
 
     def doit(self):

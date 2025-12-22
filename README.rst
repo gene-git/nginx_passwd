@@ -12,13 +12,18 @@ Manages basic auth password files. This replaces the functionality provided by h
 It also provides modern hash functions, such as argon2 and pbkdf2_sha512, which are far superior.
 
 
- * All git tags are signed with arch@sapience.com key which is available via WKD
-   or download from https://www.sapience.com/tech. Add the key to your package builder gpg keyring.
-   The key is included in the Arch package and the source= line with *?signed* at the end can be used
-   to verify the git tag.  You can also manually verify the signature
+* All git tags are signed with arch@sapience.com key which is available via WKD
+  or download from https://www.sapience.com/tech. Add the key to your package builder gpg keyring.
+  The key is included in the Arch package and the source= line with *?signed* at the end can be used
+  to verify the git tag.  You can also manually verify the signature
 
 New Or Interesting
 ==================
+
+**Version 3.1.0**
+
+* Remove os.getlogin() in tests (ENOTTY reported by @ccharabaruk on AUR package).
+* Small tidy ups
 
 **Version 3.0.0**
 
@@ -27,12 +32,12 @@ New Or Interesting
   * passlib bcrypt is broken 
   * there is a fork which works
 
-* Algo changes no longer using passlib:
+* Algo changes where nginx_passwd is no longer using passlib :
   
-  * bcrypt now uses python-bcrypt directly
-  * argon2 now uses python-argon2-cffi (which uses C library)
-  * pbkdf2_sha512 now uses python-cryptography
-  * pbkdf2_sha256 now uses python-cryptography
+  * bcrypt : now uses python-bcrypt directly
+  * argon2 : now uses python-argon2-cffi (that calls C library)
+  * pbkdf2_sha512 : now uses python-cryptography
+  * pbkdf2_sha256 : now uses python-cryptography
 
 **Older**
 
@@ -68,12 +73,17 @@ The supported algortithms are::
     * Active : sha512, sha256, bcrypt
     * Deprecated: md5,  apr_md5/apr1
 
-and sha256 is the default.
+with *sha256* being the default. 
 
-These older and now deprecated algorithms (*md5*, *apr_md5*) are still supported but should be replaced by
+Note: At some point in futute we will change the default algo to the more modern *argon2*.
+
+Older and now deprecated algorithms (*md5*, *apr_md5*) are still supported but should be replaced by
 one of the active ones.
 
-Aside, *apr_md5* also known as *apr1*, is the ancient apache variant of md5.
+Note: *apr_md5*, also known as *apr1*, is the ancient Apache variant of md5.
+
+Note: If the password is not provided with *-p* option and is nowhere is found to read it from, then it will
+be an empty string. 
 
 Options
 -------
@@ -82,37 +92,37 @@ The options are given below and *nginx-passwd -h* provides a help summary.
 
 Positional Argument:
 
- * username
+* username
 
    required argument.
 
-  * (*-h, --help*)
+* (*-h, --help*)
 
-     show help message and exit
+   show help message and exit
 
-  * (*-f, --passwd_file*)  <password_file>   
+* (*-f, --passwd_file*)  <password_file>   
 
-    Write to this Password file
+  Write to this Password file
 
-  * (*-a, --algo*) <algorithm>   
+* (*-a, --algo*) <algorithm>   
 
-    Default is sha256. Can be one of::
+  Default is now argon2 (older versions used sha256). Can be one of::
 
-    * Modern : argon2, pbkdf2_sha512, pbkdf2_sha256
-    * Active : sha512, sha256, bcrypt
-    * Deprecated: md5,  md5_apr1
+  * Modern : argon2, pbkdf2_sha512, pbkdf2_sha256
+  * Active : sha512, sha256, bcrypt
+  * Deprecated: md5,  md5_apr1
 
-  * (*-p, --passwd*) <password>  
+* (*-p, --passwd*) <password>  
 
-    Password as an option. Without this it will be read from stdin.
+  Password as an option. Without this it will be read from stdin.
 
-  * (*-D, --delete*)
+* (*-D, --delete*)
 
-    Delete this user from the password file.
+  Delete this user from the password file.
 
-  * (*-v, --verify*)
+* (*-v, --verify*)
 
-    Checks that the provided password matches that in the password file
+  Checks that the provided password matches that in the password file
 
 ########
 Appendix
@@ -122,14 +132,14 @@ Installation
 ============
 
 Available on
- * `Github`_
- * `Archlinux AUR`_
+* `Github`_
+* `Archlinux AUR`_
 
 On Arch you can build using the PKGBUILD provided in packaging directory or from the AUR package.
 To build manually, clone the repo and do:
 
- .. code-block:: bash
-    :caption: Manual Install
+.. code-block:: bash
+   :caption: Manual Install
 
         rm -f dist/*
         /usr/bin/python -m build --wheel --no-isolation
@@ -143,8 +153,12 @@ Dependencies
 
 * Run Time :
 
-  * python (3.9 or later)
+  * python          (3.13 or later)
   * passlib
+  * bcrypt          (aka python-bcrypt)
+  * argon2-cffi     (aka python-argon2-cffi)
+  * cryptography    (aka python-cryptography)
+
 
 *NB* versions 1.1 and earlier used openssl - all newer version now use python passlib library.
 

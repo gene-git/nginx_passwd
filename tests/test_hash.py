@@ -1,6 +1,5 @@
 """
 Hash Tests
-
 Please set PYTHONPATH.
 """
 import os
@@ -13,16 +12,28 @@ def _get_passinfo() -> tuple[str, str, str]:
     Temporary Directory password file.
     """
     pid = os.getpid()
-    user = os.getlogin()
+    uid = os.getuid()
 
-    tmpdir = f'/tmp/_test-{user}-{pid}'
+    tmpdir = f'/tmp/_test-{uid}'
     os.makedirs(tmpdir, exist_ok=True)
 
     passuser = 'alice'
     password = 'xxx'
-    passfile = f'{tmpdir}/secret'
+    passfile = f'{tmpdir}/secret.{pid}'
 
     return (passuser, password, passfile)
+
+
+def _clean_file(path: str):
+    """
+    Remove file
+    """
+    if not path or not os.path.isfile(path):
+        return
+    try:
+        os.unlink(path)
+    except OSError:
+        pass
 
 
 def _test_hash(algo: str) -> bool:
@@ -47,6 +58,8 @@ def _test_hash(algo: str) -> bool:
 
     pargs += ['-v']
     (rc, _stdout, _stderr) = run_prog(pargs, env=env)
+    _clean_file(passfile)
+
     if rc != 0:
         return False
     return True
