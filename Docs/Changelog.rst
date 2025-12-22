@@ -6,12 +6,19 @@ Tags
 
 .. code-block:: text
 
-	0.9.0 (2023-04-17) -> 3.2.0 (2025-12-22)
-	53 commits.
+	0.9.0 (2023-04-17) -> 3.2.1 (2025-12-22)
+	55 commits.
 
 Commits
 =======
 
+
+* 2025-12-22  : **3.2.1**
+
+.. code-block:: text
+
+              - Installer: use new path to license
+              - update Docs/Changelogs Docs/${my_name}.pdf
 
 * 2025-12-22  : **3.2.0**
 
