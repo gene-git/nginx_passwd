@@ -1,10 +1,9 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["uv_build>=0.9.21,<=1.0.0"]
+build-backend = "uv_build"
 
 [project]
 name = "nginx_passwd"
-dynamic = ["version"]
 description = "Basic Auth Password File Manager for nginx (gc)"
 authors = [{ name = "Gene C", email = "arch@sapience.com" }]
 license = "MIT"
@@ -13,18 +12,31 @@ keywords = []
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
 ]
+requires-python = ">=3.13"
+version = "3.3.0"
 dependencies = []
 
-[tool.hatch.build.targets.wheel]
-packages = ["src/nginx_passwd"]
-include = [
-    "src/nginx_passwd",
-]
+[project.urls]
+Documentation = "https://github.com/gene-git/nginx_passwd/Docs"
+Issues = "https://github.com/gene-git/nginx_passwd/issues"
+Source = "https://github.com/gene-git/nginx_passwd"
 
-[tool.hatch.version]
-path = "src/nginx_passwd/lib/version.py"
+[tool.uv.build-backend]
+module-name = 'nginx_passwd_mod'
+module-root = "src"
+source-include = [
+    '/nginx_passwd_mod',
+    '/nginx_passwd_mod/py.typed',
+]
+source-exclude = [
+    ".pytest_cache",
+    "__pycache__",
+    ".mypy_cache",
+]
 
 [tool.mypy]
 check_untyped_defs = true

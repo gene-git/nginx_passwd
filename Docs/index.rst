@@ -4,11 +4,9 @@
    contain the root `toctree` directive.
 
 nginx_passwd documentation
-=============================================================
+==========================
 
 .. toctree::
    README
    License/License
-   :maxdepth: 2
-   :caption: Contents:
 

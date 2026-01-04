@@ -3,8 +3,12 @@
 # Source code checks.
 #
 # Run in src dir
-# i.e. cd src/gfw
+# i.e. cd src
 # 
+# Requires:
+# - pylint
+# - pycodestyle
+# - mypy
 
 apps=(
     nginx-passwd.py
@@ -13,24 +17,22 @@ apps=(
 modules=(
     lib
 )
+
+mod_dir='nginx_passwd_mod'
     
-echo "-------------------------------"
-echo "     pylint"
-echo "-------------------------------"
+# code
+echo "---"
+echo "Checking code"
+PYTHONPATH=. pylint $mod_dir/*py $mod_dir/*/*py 
+PYTHONPATH=. pycodestyle --max-line-length=110 $mod_dir/*py $mod_dir/*/*py
+mypy --check-untyped-defs --follow-untyped-imports $mod_dir
 
-PYTHONPATH=. pylint */*py ${apps[@]}
-
-
-echo "-------------------------------"
-echo "     pycodestyle"
-echo "-------------------------------"
-
-PYTHONPATH=. pycodestyle --max-line-length=110 */*py ${apps[@]}
-
-echo "-------------------------------"
-echo "     mypy"
-echo "-------------------------------"
-
-mypy --check-untyped-defs --follow-untyped-imports ${modules[@]} ${apps[@]}
-
+# Tests
+echo ""
+echo "---"
+echo "Checking tests"
+cd ../tests
+PYTHONPATH=../src pylint *py
+PYTHONPATH=../src pycodestyle --max-line-length=110 *py
+mypy --check-untyped-defs --follow-untyped-imports .
 

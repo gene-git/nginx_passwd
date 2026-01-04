@@ -16,7 +16,7 @@ Basic Auth Password files are in form:
   username:<password info>
 """
 # pylint: disable=invalid-name
-from lib import Ngp
+from nginx_passwd_mod.lib import Ngp
 
 
 def main():

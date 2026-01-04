@@ -20,6 +20,12 @@ It also provides modern hash functions, such as argon2 and pbkdf2_sha512, which 
 New Or Interesting
 ==================
 
+**Version 3.3.0**
+
+* Source code reorg
+* Switch python packager from hatch to uv
+* Confirm all working with python 3.14.2
+
 **Version 3.1.0**
 
 * Remove os.getlogin() in tests (ENOTTY reported by @ccharabaruk on AUR package).
@@ -32,12 +38,14 @@ New Or Interesting
   * passlib bcrypt is broken 
   * there is a fork which works
 
-* Algo changes where nginx_passwd is no longer using passlib :
+* Algo changes - limit use of passlib only to legacy hashes
   
   * bcrypt : now uses python-bcrypt directly
-  * argon2 : now uses python-argon2-cffi (that calls C library)
+  * argon2 : now uses python-argon2-cffi (which calls C library)
   * pbkdf2_sha512 : now uses python-cryptography
   * pbkdf2_sha256 : now uses python-cryptography
+  * md5_crypt : legacy algo using passlib
+  * apr_md5_crypt : legacy algo using passlib
 
 **Older**
 
@@ -187,9 +195,9 @@ latest commit on git master branch.
 License
 =======
 
-Created by Gene C. It is licensed under the terms of the MIT license.
+Created by Gene C. It is licensed under the terms of the GPL-2.0-or-later license.
 
- - SPDX-License-Identifier: MIT
+ - SPDX-License-Identifier: GPL-2.0-or-later
  - SPDX-FileCopyrightText: © 2023-present  Gene C <arch@sapience.com>
 
 .. _Github: https://github.com/gene-git/nginx_passwd
