@@ -6,12 +6,19 @@ Tags
 
 .. code-block:: text
 
-	0.9.0 (2023-04-17) -> 3.3.0 (2026-01-04)
-	57 commits.
+	0.9.0 (2023-04-17) -> 3.3.1 (2026-01-04)
+	59 commits.
 
 Commits
 =======
 
+
+* 2026-01-04  : **3.3.1**
+
+.. code-block:: text
+
+              - Small non-code tidy ups
+              - update Docs/Changelogs
 
 * 2026-01-04  : **3.3.0**
 
