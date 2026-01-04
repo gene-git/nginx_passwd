@@ -6,12 +6,27 @@ Tags
 
 .. code-block:: text
 
-	0.9.0 (2023-04-17) -> 3.2.1 (2025-12-22)
-	55 commits.
+	0.9.0 (2023-04-17) -> 3.3.0 (2026-01-04)
+	57 commits.
 
 Commits
 =======
 
+
+* 2026-01-04  : **3.3.0**
+
+.. code-block:: text
+
+                  - **Version 3.3.0**
+            
+                    * Source code reorg
+                    * Switch python packager from hatch to uv
+                    * Confirm all working with python 3.14.2
+ 2025-12-22   ⋯
+
+.. code-block:: text
+
+              - update Docs/Changelogs Docs/${my_name}.pdf
 
 * 2025-12-22  : **3.2.1**
 
