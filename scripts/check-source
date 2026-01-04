@@ -10,14 +10,6 @@
 # - pycodestyle
 # - mypy
 
-apps=(
-    nginx-passwd.py
-)
-
-modules=(
-    lib
-)
-
 mod_dir='nginx_passwd_mod'
     
 # code

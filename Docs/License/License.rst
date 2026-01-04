@@ -2,7 +2,7 @@
 License
 =======
 
-nginx software is a Basic Auth Password File Manager for nginx.
+nginx_passwd provides a Basic Auth Password File Manager suporting new and legacy hash algorithms.
 
 Copyright © 2022-present Gene C <arch@sapience.com>
 

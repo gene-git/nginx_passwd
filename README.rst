@@ -8,8 +8,9 @@ Overview
 ========
 
 Basic Auth Password Manager.
+
 Manages basic auth password files. This replaces the functionality provided by htpasswd from Apache.
-It also provides modern hash functions, such as argon2 and pbkdf2_sha512, which are far superior.
+It also provides legacy and modern hash functions, including the argon2 and pbkdf2_sha512.
 
 
 * All git tags are signed with arch@sapience.com key which is available via WKD
