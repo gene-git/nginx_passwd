@@ -22,7 +22,7 @@ apps=('nginx-passwd')
 # so can make app link in /usr/bin
 sitedir=$(/usr/bin/python3 -c "import site; print(site.getsitepackages()[0])")
 installdir="${dest}${sitedir}"
-app_location="${sitedir}/mkpkg_mod/apps"
+app_location="${sitedir}/nginx_passwd_mod/apps"
 
 uv_opts=(
     --python /usr/bin/python
