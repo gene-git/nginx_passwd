@@ -6,12 +6,23 @@ Tags
 
 .. code-block:: text
 
-	0.9.0 (2023-04-17) -> 3.3.1 (2026-01-04)
-	59 commits.
+	0.9.0 (2023-04-17) -> 3.3.2 (2026-05-05)
+	61 commits.
 
 Commits
 =======
 
+
+* 2026-05-05  : **3.3.2**
+
+.. code-block:: text
+
+              - Fix goofy typo in installer - thanks to @solsticedhiver in the aur
+ 2026-01-04   ⋯
+
+.. code-block:: text
+
+              - update Docs/Changelogs
 
 * 2026-01-04  : **3.3.1**
 

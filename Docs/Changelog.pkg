@@ -1,0 +1,31 @@
+-------------------------------------------------------
+ Changelog    : nginx_passwd
+ Tags         : 3.2.0 ➙ 3.3.2
+              : 2025-12-22 ➙ 2026-05-05
+              : 6 tags. See Docs for full changelog
+-------------------------------------------------------
+
+ 2026-05-05   : 3.3.2
+              - Fix goofy typo in installer - thanks to @solsticedhiver in the aur
+ 2026-01-04   ⋯
+              - update Docs/Changelogs
+
+ 2026-01-04   : 3.3.1
+              - Small non-code tidy ups
+              - update Docs/Changelogs
+
+ 2026-01-04   : 3.3.0
+                  - **Version 3.3.0**
+            
+                    * Source code reorg
+                    * Switch python packager from hatch to uv
+                    * Confirm all working with python 3.14.2
+ 2025-12-22   ⋯
+              - update Docs/Changelogs Docs/${my_name}.pdf
+
+ 2025-12-22   : 3.2.1
+              - Installer: use new path to license
+              - update Docs/Changelogs Docs/${my_name}.pdf
+
+ 2025-12-22   : 3.2.0
+              - * Little doc cleanups
