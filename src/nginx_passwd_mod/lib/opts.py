@@ -12,12 +12,12 @@ from ._ngpopts_base import NgpOptsBase
 from .hash_algos import hash_algo_default
 from .hash_algos import hash_algos_active
 from .hash_algos import hash_algos_deprecated
+from .hash_algos import hash_algos_modern
 
 type Opt = tuple[str | tuple[str, str], dict[str, Any]]
 
 
-def _avail_options(algo_def: str, algos: list[str],
-                   algos_depr: list[str]
+def _avail_options(algo_def: str, algos_depr: str, algos_act: str, algos_mod: str
                    ) -> tuple[str, str, list[str], list[Opt]]:
     """
     List of command line options for argparse
@@ -32,23 +32,21 @@ def _avail_options(algo_def: str, algos: list[str],
     opt = (('-f', '--passwd_file'), {'help': ohelp})
     opts.append(opt)
 
-    ohelp = 'Algorothms may use "_" or "-" in the name'
-    ohelp += f'\ndefault = {algo_def}\nactive = {algos}'
-    ohelp += f'\ndeprecated = {algos_depr}'
-    opt = (('-a', '--algo'), {'help': ohelp, 'default': algo_def})
-    opts.append(opt)
+    ohelp = f'Default is {algo_def}'
+    ohelp += f'\n* modern     : {algos_mod}'
+    ohelp += f'\n* active     : {algos_act}'
+    ohelp += f'\n* deprecated : {algos_depr}'
+    ohelp += '\nAlgo names may use "_" or "-"'
+    opts.append((('-a', '--algo'), {'help': ohelp, 'default': algo_def}))
 
     ohelp = 'Password to use'
-    opt = (('-p', '--passwd'), {'help': ohelp})
-    opts.append(opt)
+    opts.append((('-p', '--passwd'), {'help': ohelp}))
 
     ohelp = 'Delete this user'
-    opts.append((('-D', '--delete'),
-                 {'help': ohelp, 'action': 'store_true'}))
+    opts.append((('-D', '--delete'), {'help': ohelp, 'action': 'store_true'}))
 
     ohelp = 'Only Verify password - requires password file'
-    opts.append((('-v', '--verify'),
-                 {'help': ohelp, 'action': 'store_true'}))
+    opts.append((('-v', '--verify'), {'help': ohelp, 'action': 'store_true'}))
 
     ohelp = 'Username'
     opts.append(('user', {'help': ohelp, 'nargs': '?'}))
@@ -60,21 +58,27 @@ def parse_options(ngp: NgpOptsBase):
     """
     Parse command line options
     """
+    #
+    # All algos display with hyphen not underscore - we accept either
+    #
     algo_def = hash_algo_default()
-    algos = hash_algos_active()
-    with_hyphen = [algo.replace('_', '-') for algo in algos if '_' in algo]
-    algos += with_hyphen
-    algos.sort()
+
+    algos_mod = hash_algos_modern()
+    algos_mod = [algo.replace('_', '-') for algo in algos_mod]
+    algos_mod_str = ', '.join(algos_mod)
+
+    algos_act = hash_algos_active()
+    algos_act = [algo.replace('_', '-') for algo in algos_act]
+    algos_act_str = ', '.join(algos_act)
 
     algos_depr = hash_algos_deprecated()
-    with_hyphen = [algo.replace('_', '-') for algo in algos_depr if '_' in algo]
-    algos_depr += with_hyphen
-    algos_depr.sort()
+    algos_depr = [algo.replace('_', '-') for algo in algos_depr]
+    algos_depr_str = ', '.join(algos_depr)
 
     #
     # Get options
     #
-    (prog, desc, argv, opts) = _avail_options(algo_def, algos, algos_depr)
+    (prog, desc, argv, opts) = _avail_options(algo_def, algos_depr_str, algos_act_str, algos_mod_str)
 
     #
     # Parse and save
@@ -97,9 +101,12 @@ def parse_options(ngp: NgpOptsBase):
         for (key, val) in vars(parsed).items():
             setattr(ngp, key, val)
 
+    #
+    # Algo check
+    #
     if ngp.algo in algos_depr:
         print(f'Warning: deprectated algo: {ngp.algo}')
 
-    elif ngp.algo not in algos:
+    elif ngp.algo not in algos_mod + algos_act:
         print(f'Warning: unknown algo: {ngp.algo} - using {ngp}')
         ngp.algo = algo_def

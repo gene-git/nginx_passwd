@@ -3,7 +3,6 @@
 """
 sha256 rounds = 535000
 sha512 rounds = 656000
-
 """
 import os
 from dataclasses import dataclass

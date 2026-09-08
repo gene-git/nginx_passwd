@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
-# SPDX-FileCopyrightText: © 2022-present Gene C <arch@sapience.com>
+# SPDX-FileCopyrightText: 2022-present Gene C <arch@sapience.com>
 """
  Generate password entry
 
@@ -38,10 +38,6 @@ from passlib.hash import apr_md5_crypt
 # - active
 from passlib.hash import sha512_crypt
 from passlib.hash import sha256_crypt
-
-# End of passlib
-
-# - active continued
 from .bcrypt import (bcrypt_password_hash, bcrypt_verify_password)
 
 # modern

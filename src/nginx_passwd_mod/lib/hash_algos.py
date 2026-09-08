@@ -5,16 +5,34 @@ Hash algos and their ident strings
 """
 
 
-def hash_algos_active() -> list[str]:
+def hash_algos_active_all() -> list[str]:
     """
-    list of (currently) active hash functions
+    list of all active hash functions = modern + active
     Modern: 'argon2', 'pbkdf2_sha512', 'pbkdf2_sha256'
     Active: 'sha512', 'sha256', 'bcrypt'
     """
-    modern = ['argon2', 'pbkdf2_sha512', 'pbkdf2_sha256']
-    active = ['sha512', 'sha256', 'bcrypt']
+    modern = hash_algos_modern()
+    active = hash_algos_active()
     algos = modern + active
     return algos
+
+
+def hash_algos_active() -> list[str]:
+    """
+    list of still active but not modern hash functions
+    Active: 'sha512', 'sha256', 'bcrypt'
+    """
+    active = ['sha512', 'sha256', 'bcrypt']
+    return active
+
+
+def hash_algos_modern() -> list[str]:
+    """
+    list of (currently) active hash functions
+    Modern: 'argon2', 'pbkdf2_sha512', 'pbkdf2_sha256'
+    """
+    modern = ['argon2', 'pbkdf2_sha512', 'pbkdf2_sha256']
+    return modern
 
 
 def hash_algos_deprecated() -> list[str]:
@@ -25,16 +43,16 @@ def hash_algos_deprecated() -> list[str]:
     due to presence of ident string. Pretty silly idea really.
     "apr_md5" is alternative name for "apr1"
     """
-    algos = ['apr1', 'apr_md5', 'md5']
-    return algos
+    deprecated = ['apr1', 'apr_md5', 'md5']
+    return deprecated
 
 
 def hash_algo_default() -> str:
     """
     default algo to use when not specified
-    At some point we should change this to 'argon2'
+    As of version 4.0.0 default changed to argon2 from sha256
     """
-    return 'sha256'
+    return 'argon2'
 
 
 def hash_to_ident(phash: str) -> str:

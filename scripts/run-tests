@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+#
+/usr/bin/meson test -C build/release
+

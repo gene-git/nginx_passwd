@@ -10,21 +10,20 @@
 # - pycodestyle
 # - mypy
 
-mod_dir='nginx_passwd_mod'
+mod_dir='src/nginx_passwd_mod'
+export PYTHONPATH=$(/usr/bin/realpath ./src)
     
 # code
-echo "---"
 echo "Checking code"
-PYTHONPATH=. pylint $mod_dir/*py $mod_dir/*/*py 
-PYTHONPATH=. pycodestyle --max-line-length=110 $mod_dir/*py $mod_dir/*/*py
-mypy --check-untyped-defs --follow-untyped-imports $mod_dir
+/usr/bin/pylint $mod_dir/*py $mod_dir/*/*py 
+/usr/bin/pycodestyle --max-line-length=110 $mod_dir/*py $mod_dir/*/*py
+/usr/bin/mypy --check-untyped-defs --follow-untyped-imports $mod_dir
 
 # Tests
 echo ""
 echo "---"
 echo "Checking tests"
-cd ../tests
-PYTHONPATH=../src pylint *py
-PYTHONPATH=../src pycodestyle --max-line-length=110 *py
-mypy --check-untyped-defs --follow-untyped-imports .
+/usr/bin/pylint src/tests/*.py
+/usr/bin/pycodestyle --max-line-length=110 src/tests/*.py
+/usr/bin/mypy --check-untyped-defs --follow-untyped-imports src/tests
 

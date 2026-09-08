@@ -3,8 +3,8 @@
 """
 Project nginx_passwd
 """
-__version__ = "3.3.2"
-__date__ = "2026-05-05"
+__version__ = "4.0.0"
+__date__ = "2026-09-08"
 __reldev__ = "release"
 
 
