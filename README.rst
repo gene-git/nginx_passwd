@@ -20,6 +20,11 @@ It also provides legacy and modern hash functions, including the argon2 and pbkd
 Recent Changes
 ==============
 
+**Version 4.0.1**
+
+* Remove sphinx tmp files from html docs
+* Make pytest optional in meson.build
+
 **Version 4.0.0**
 
 * Default hash algo is argon2

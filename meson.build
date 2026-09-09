@@ -110,21 +110,26 @@ install_data(
 #
 # tests
 #
-pytest = find_program('pytest')
-srcdir = proj_root / 'src'
-testdir = srcdir / 'tests'
+pytest = find_program('/usr/bin/pytest', required: false)
 
-test_files = [
-  'test_hash.py',
-  ]
+if not pytest.found()
+  warning('pytest not found, tests not available')
+else
 
-foreach this_test : test_files
-  test(this_test,
-    pytest,
-    args: [testdir / this_test],
-    env: {'PYTHONPATH': srcdir},
-    suite: ['unit'],
-    timeout: 60,
-  )
-endforeach
+  srcdir = proj_root / 'src'
+  testdir = srcdir / 'tests'
 
+  test_files = [
+    'test_hash.py',
+    ]
+
+  foreach this_test : test_files
+    test(this_test,
+      pytest,
+      args: [testdir / this_test],
+      env: {'PYTHONPATH': srcdir},
+      suite: ['unit'],
+      timeout: 60,
+    )
+  endforeach
+endif

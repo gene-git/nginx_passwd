@@ -6,14 +6,23 @@ Tags
 
 .. code-block:: text
 
-	0.9.0 (2023-04-17) -> 4.0.0 (2026-09-08)
-	63 commits.
+	0.9.0 (2023-04-17) -> 4.0.1 (2026-09-09)
+	64 commits.
 
 Commits
 =======
 
 
-* 2026-09-08  : **4.0.0**
+* 2026-09-09  : **4.0.1**
+
+.. code-block:: text
+
+              - **Version 4.0.1**
+            
+                * Remove sphinx tmp files from html docs
+                * Make pytest optional in meson.build
+
+* 2026-09-08  : **4.0.0, origin/master**
 
 .. code-block:: text
 
