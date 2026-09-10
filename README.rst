@@ -20,6 +20,12 @@ It also provides legacy and modern hash functions, including the argon2 and pbkd
 Recent Changes
 ==============
 
+**Version 4.0.2**
+
+* Change Arch package dependencies that have been renamed:
+
+  - pyconcurrent -> python-pyconcurrent
+
 **Version 4.0.1**
 
 * Remove sphinx tmp files from html docs

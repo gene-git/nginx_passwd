@@ -6,14 +6,24 @@ Tags
 
 .. code-block:: text
 
-	0.9.0 (2023-04-17) -> 4.0.1 (2026-09-09)
-	64 commits.
+	0.9.0 (2023-04-17) -> 4.0.2 (2026-09-10)
+	65 commits.
 
 Commits
 =======
 
 
-* 2026-09-09  : **4.0.1**
+* 2026-09-10  : **4.0.2**
+
+.. code-block:: text
+
+              - **Version 4.0.2**
+            
+                * Change Arch package dependencies that have been renamed:
+            
+                  - pyconcurrent -> python-pyconcurrent
+
+* 2026-09-09  : **4.0.1, origin/master**
 
 .. code-block:: text
 
@@ -22,7 +32,7 @@ Commits
                 * Remove sphinx tmp files from html docs
                 * Make pytest optional in meson.build
 
-* 2026-09-08  : **4.0.0, origin/master**
+* 2026-09-08  : **4.0.0**
 
 .. code-block:: text
 
